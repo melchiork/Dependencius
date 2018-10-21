@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dependencius", "Dependencius\Dependencius.csproj", "{7A106314-03E6-4F07-907F-D95EE617583F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BC3250B1-E1F0-4A35-99C3-CE4DD12A8D40}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dependencius.Test", "Dependencius.Test\Dependencius.Test.csproj", "{B4792592-752B-48FE-833F-A427104CA30C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A106314-03E6-4F07-907F-D95EE617583F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A106314-03E6-4F07-907F-D95EE617583F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A106314-03E6-4F07-907F-D95EE617583F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A106314-03E6-4F07-907F-D95EE617583F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4792592-752B-48FE-833F-A427104CA30C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4792592-752B-48FE-833F-A427104CA30C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4792592-752B-48FE-833F-A427104CA30C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4792592-752B-48FE-833F-A427104CA30C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {610AE19F-B9D3-44AB-92FA-ECA04E2F7A91}
+	EndGlobalSection
+EndGlobal
