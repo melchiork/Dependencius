@@ -3,6 +3,7 @@
     internal enum OutputMode
     {
         DotGraph,
-        Csv
+        CountCsv,
+        FullCsv
     }
 }

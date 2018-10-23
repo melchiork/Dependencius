@@ -16,7 +16,7 @@ namespace Dependencius.Test
                 x => errorResult += x, x => throw new Exception(),
                 (x, y) => new List<string> {"path1"});
 
-            assembliesAnalyzer.ReadAndWriteOutput(new CommandLineOptions(OutputMode.Csv, "*.dll", "path"));
+            assembliesAnalyzer.ReadAndWriteOutput(new CommandLineOptions(OutputMode.CountCsv, "*.dll", "path"));
 
             errorResult.Should().Contain("path1");
         }

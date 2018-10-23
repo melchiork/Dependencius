@@ -11,7 +11,7 @@ namespace Dependencius
             DirectoryPath = directoryPath;
         }
 
-        [Option('o', "outputMode", Required = true, HelpText = "Valid values: DotGraph, Csv")]
+        [Option('o', "outputMode", Required = true, HelpText = "Valid values: DotGraph, CountCsv, FullCsv")]
         public OutputMode OutputMode { get; }
 
         [Option('f', "filter", Default = "*.dll")]

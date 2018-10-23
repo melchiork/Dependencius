@@ -40,8 +40,11 @@ namespace Dependencius
                 case OutputMode.DotGraph:
                     _writeOutput(graph.ToDotGraph());
                     break;
-                case OutputMode.Csv:
+                case OutputMode.CountCsv:
                     _writeOutput(graph.ToCountCsv());
+                    break;
+                case OutputMode.FullCsv:
+                    _writeOutput(graph.ToFullCsv());
                     break;
             }
         }

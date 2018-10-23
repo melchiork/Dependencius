@@ -52,5 +52,23 @@ S3,1".Replace("\r", "");
 
             result.Should().Be(expectedResult);
         }
+
+        [Fact]
+        public void ReturnValidFullCsv()
+        {
+            var expectedResult = @"Dependency,ReferencedBy
+A,B
+S1,A
+S2,A
+S2,B
+S3,B".Replace("\r", "");
+
+
+            var assemblyGraph = new AssembliesGraph(_assembliesWithDependencies);
+
+            var result = assemblyGraph.ToFullCsv();
+
+            result.Should().Be(expectedResult);
+        }
     }
 }

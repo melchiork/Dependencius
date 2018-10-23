@@ -17,7 +17,7 @@ namespace Dependencius
         {
             var allDependencies =
                 _assembliesWithDependencies.SelectMany(x =>
-                    x.ReferencedAssembliesNames.Select(raf => $"{x.Name} -> {raf}"))
+                        x.ReferencedAssembliesNames.Select(raf => $"{x.Name} -> {raf}"))
                     .Select(x => x.Replace(".", "_"));
 
             var uniqueGraphEntries = new HashSet<string>(allDependencies);
@@ -44,6 +44,21 @@ namespace Dependencius
             var csvBody = string.Join("\n", csvRows);
 
             var csv = $"Dependency,Count\n{csvBody}";
+
+            return csv;
+        }
+
+        public string ToFullCsv()
+        {
+            var csvRows =
+                _assembliesWithDependencies.SelectMany(x =>
+                        x.ReferencedAssembliesNames.Select(raf => $"{raf},{x.Name}"))
+                    .Distinct()
+                    .OrderBy(x => x);
+
+            var csvBody = string.Join("\n", csvRows);
+
+            var csv = $"Dependency,ReferencedBy\n{csvBody}";
 
             return csv;
         }
