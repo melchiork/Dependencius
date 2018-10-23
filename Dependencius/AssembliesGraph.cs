@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace Dependencius
 {
-    internal class AssemblyGraph
+    internal class AssembliesGraph
     {
         private readonly ImmutableList<AssemblyWithDependencies> _assembliesWithDependencies;
 
-        public AssemblyGraph(IEnumerable<AssemblyWithDependencies> assembliesWithDependencies)
+        public AssembliesGraph(IEnumerable<AssemblyWithDependencies> assembliesWithDependencies)
         {
             _assembliesWithDependencies = assembliesWithDependencies.ToImmutableList();
         }

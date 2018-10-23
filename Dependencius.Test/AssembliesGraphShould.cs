@@ -4,11 +4,11 @@ using Xunit;
 
 namespace Dependencius.Test
 {
-    public class AssemblyGraphShould
+    public class AssembliesGraphShould
     {
         private readonly List<AssemblyWithDependencies> _assembliesWithDependencies;
 
-        public AssemblyGraphShould()
+        public AssembliesGraphShould()
         {
             _assembliesWithDependencies = new List<AssemblyWithDependencies>
             {
@@ -29,7 +29,7 @@ namespace Dependencius.Test
 }".Replace("\r", "");
 
 
-            var assemblyGraph = new AssemblyGraph(_assembliesWithDependencies);
+            var assemblyGraph = new AssembliesGraph(_assembliesWithDependencies);
 
             var result = assemblyGraph.ToDotGraph();
 
@@ -46,7 +46,7 @@ S1,1
 S3,1".Replace("\r", "");
 
 
-            var assemblyGraph = new AssemblyGraph(_assembliesWithDependencies);
+            var assemblyGraph = new AssembliesGraph(_assembliesWithDependencies);
 
             var result = assemblyGraph.ToCountCsv();
 

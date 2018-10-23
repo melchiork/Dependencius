@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using CommandLine;
 using Mono.Cecil;
 
@@ -10,32 +9,21 @@ namespace Dependencius
     {
         private static void Main(string[] args)
         {
+            var assembliesAnalyzer = new AssembliesAnalyzer(
+                Console.Write,
+                Console.Error.WriteLine,
+                ModuleDefinition.ReadModule,
+                ReadFilesFromDirectory);
+
             Parser.Default.ParseArguments<CommandLineOptions>(args)
-                .WithParsed(GenerateOutput);
+                .WithParsed(assembliesAnalyzer.ReadAndWriteOutput);
         }
 
-        private static void GenerateOutput(CommandLineOptions options)
+        private static string[] ReadFilesFromDirectory(string path, string filter)
         {
-            var path = options.DirectoryPath ?? Directory.GetCurrentDirectory();
+            var effectivePath = path ?? Directory.GetCurrentDirectory();
 
-            var paths = Directory.GetFiles(path, options.Filter);
-
-            var assembliesWithDependencies = paths
-                .Select(ModuleDefinition.ReadModule)
-                .Select(x =>
-                    new AssemblyWithDependencies(x.Assembly.Name.Name, x.AssemblyReferences.Select(ar => ar.Name)));
-
-            var graph = new AssemblyGraph(assembliesWithDependencies);
-
-            switch (options.OutputMode)
-            {
-                case OutputMode.DotGraph:
-                    Console.Write(graph.ToDotGraph());
-                    break;
-                case OutputMode.Csv:
-                    Console.Write(graph.ToCountCsv());
-                    break;
-            }
+            return Directory.GetFiles(effectivePath, filter);
         }
     }
 }
